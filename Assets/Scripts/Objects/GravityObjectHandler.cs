@@ -3,18 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
+[SelectionBase]
 public class GravityObjectHandler : MonoBehaviour
 {
     public static List<GravityObjectHandler> gravityObjects;
+
     public Vector3 initalVelocity;
     public Rigidbody rb;
+    public bool useDensity;
+    public float density = 10;
+
+    float objectVolume = 0;
 
     const float GRAVITY = 0.0667428f; // 0.0000000000667428;
-
     void Start()
     {
         rb.velocity = initalVelocity;
+
+        if (useDensity)
+        {
+            Transform[] children = GetComponentsInChildren<Transform>();
+            float totalVolume = 1;
+            foreach (MeshFilter meshFilter in gameObject.GetComponentsInChildren<MeshFilter>())
+            {
+                Debug.Log(transform.localScale);
+                Vector3 objectSize = meshFilter.transform.localScale;
+                float volume = objectSize[0] * objectSize[1] * objectSize[2];
+                totalVolume *= Utils.VolumeOfMesh(meshFilter.mesh) * volume;
+            }
+
+            objectVolume = totalVolume;
+
+            rb.mass = totalVolume * density;
+        }
     }
 
 
@@ -32,6 +53,7 @@ public class GravityObjectHandler : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (rb.isKinematic) return;
         Vector3 summedAcceleration = Vector3.zero;
         foreach (GravityObjectHandler gravityObject in gravityObjects)
         {
@@ -51,7 +73,9 @@ public class GravityObjectHandler : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = new Color(0, 0, 255, 0.25f);
-        Gizmos.DrawSphere(transform.position, 0.75f);
+        if (!Application.isPlaying)
+            DrawArrow.ForGizmo(transform.position, initalVelocity, Color.black);
+        else
+            DrawArrow.ForGizmo(transform.position, rb.velocity, Color.black);
     }
 }
