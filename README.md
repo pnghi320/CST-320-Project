@@ -11,4 +11,3 @@ For bigger issues, try and put them in the Issues tab so we can keep track of th
 And please, if we get something with API tokens, do not upload them. Exclude files with them in the .gitignore if they are not already ignored.
 
 
-hi
