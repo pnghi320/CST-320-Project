@@ -26,7 +26,6 @@ public class GravityObjectHandler : MonoBehaviour
             float totalVolume = 1;
             foreach (MeshFilter meshFilter in gameObject.GetComponentsInChildren<MeshFilter>())
             {
-                Debug.Log(transform.localScale);
                 Vector3 objectSize = meshFilter.transform.localScale;
                 float volume = objectSize[0] * objectSize[1] * objectSize[2];
                 totalVolume *= Utils.VolumeOfMesh(meshFilter.mesh) * volume;
