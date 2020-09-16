@@ -22,7 +22,7 @@ public class TerrainFace
         axisB = Vector3.Cross(localUp, axisA);
     }
 
-    public void constructMesh()
+    public void ConstructMesh()
     {
         Vector3[] vertices = new Vector3[resolution * resolution];
         int[] triangles = new int[(resolution - 1) * (resolution - 1) * 6];
