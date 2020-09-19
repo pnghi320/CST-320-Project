@@ -571,8 +571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
-  isTransformable: 0
+  isInteractable: 1
+  isTransformable: 1
   Notice: {fileID: 0}
   controlledLight01: {fileID: 0}
 --- !u!1 &295829103
@@ -2363,9 +2363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80467bf9eaa894799afe4eb298d4abe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticle: {fileID: 2127208624}
-  inactiveReticleColor: {r: 0.8470589, g: 0.8470589, b: 0.8470589, a: 1}
-  activeReticleColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1075089394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2557,7 @@ PrefabInstance:
     - target: {fileID: 639362499635854829, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 639362499635854829, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
@@ -2974,6 +2971,8 @@ GameObject:
   - component: {fileID: 1212922761}
   - component: {fileID: 1212922760}
   - component: {fileID: 1212922759}
+  - component: {fileID: 1212922763}
+  - component: {fileID: 1212922764}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3057,6 +3056,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212922763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212922758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 0
+  isTransformable: 0
+  Notice: {fileID: 0}
+  controlledLight01: {fileID: 0}
+--- !u!114 &1212922764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212922758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a5f1cc7455c4aa985883d0b27968ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 0
+  isTransformable: 0
+  Notice: {fileID: 0}
+  controlledLight01: {fileID: 0}
 --- !u!1 &1224806368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,7 +4678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5b021b95c71468abf7849b2e327106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeMode: 2
+  activeMode: 3
+  activeFurniturePrefab: {fileID: 1702967559}
   playerSpeed: 20
 --- !u!1 &2020914466
 GameObject:
@@ -4980,22 +5012,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
---- !u!114 &2098048154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098048150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInteractable: 0
-  isTransformable: 0
   Notice: {fileID: 0}
   controlledLight01: {fileID: 0}
 --- !u!1 &2127208624

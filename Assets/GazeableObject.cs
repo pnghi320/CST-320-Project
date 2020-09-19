@@ -59,6 +59,7 @@ public class GazeableObject : MonoBehaviour
     
     public virtual void OnPress(RaycastHit hitInfo){
         Debug.Log("Botton pressed on " + gameObject.name);
+        /*
         //for when the player is in interact mode call the interact function and click on interactable obj
         if (isInteractable && Player.instance.activeMode == InputMode.INTERACT ){
             //call gazeinteract funct
@@ -69,6 +70,7 @@ public class GazeableObject : MonoBehaviour
             //Unhide the notice canvas
             Notice.SetActive(true);
         }
+        */
         //if we're in transform mode, this will make the movement look smoother
         if (isTransformable){
 
@@ -126,11 +128,15 @@ public class GazeableObject : MonoBehaviour
     //for moving the obj
     public virtual void GazeTranslate (RaycastHit hitInfo){
         //make sure that we looking at a collider and it is the floor
-        //if (hitInfo.collider != null && hitInfo.collider.GetComponent<Floor>()){
+        if (hitInfo.collider != null && hitInfo.collider.GetComponent<Floor>()){
             //transform.position is the postion of the obj
             //make it equal to the point of the Raycast
-            transform.position = hitInfo.point;
-        //}
+            var pos = transform.position;
+            pos.z = hitInfo.point.z;
+            pos.x = hitInfo.point.x;
+            pos.y = hitInfo.point.y + 10;
+            transform.position = pos;
+        }
     }
 
     //for rotating the obj

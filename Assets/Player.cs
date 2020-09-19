@@ -14,8 +14,8 @@ public enum InputMode{
     TRANSLATE,
     ROTATE,
     SCALE,
-    DRAG,
-    INTERACT
+    //DRAG,
+    //INTERACT
 }
 
 
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public static Player instance;
     public InputMode activeMode = InputMode.NONE;
     //keep track of what kind of furniture is being created during the game
-    
+    public Object activeFurniturePrefab;
     
     //SerializeField makes private or protected variables visible in the inspector, so that we can still change it in unity 
     //Set the speed of the player while walking
