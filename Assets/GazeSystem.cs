@@ -7,10 +7,10 @@ using UnityEngine;
 //the gazesystem class inherents from the MonoBehaviror class
 public class GazeSystem : MonoBehaviour {
     
-    public GameObject reticle;
+    //public GameObject reticle;
 
-    public Color inactiveReticleColor = Color.gray;
-    public Color activeReticleColor = Color.green;
+    //public Color inactiveReticleColor = Color.gray;
+    //public Color activeReticleColor = Color.green;
     
 
     //get the type GazeableObject from the other file
@@ -23,7 +23,7 @@ public class GazeSystem : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //when we first start the game the reticle should has gray color since it is not in touch with any interable obj
-        SetReticleColor (inactiveReticleColor);
+        //SetReticleColor (inactiveReticleColor);
     }
         
     // Update is called once per frame
@@ -62,7 +62,7 @@ public class GazeSystem : MonoBehaviour {
                     ClearCurrentObject ();
                     currentGazeObject = gazeObj;
                     currentGazeObject.OnGazeEnter(hitInfo);
-                    SetReticleColor(activeReticleColor);
+                    //SetReticleColor(activeReticleColor);
 
                 } 
                 else 
@@ -86,11 +86,12 @@ public class GazeSystem : MonoBehaviour {
         }
     }
 
-    private void SetReticleColor(Color reticleColor)
+    /*private void SetReticleColor(Color reticleColor)
     {
         // Set the color of the reticle
         reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor);
     }
+    */
 
 
     private void CheckforInput(RaycastHit hitInfo)
@@ -125,7 +126,7 @@ public class GazeSystem : MonoBehaviour {
             //finish looking at the current obj
             currentGazeObject.OnGazeExit();
             //change the reticle color to gray
-            SetReticleColor(inactiveReticleColor);
+            //SetReticleColor(inactiveReticleColor);
             //clear the current currentGazeObject
             currentGazeObject = null;
         }
