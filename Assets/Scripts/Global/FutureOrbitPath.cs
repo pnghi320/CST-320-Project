@@ -17,18 +17,14 @@ public class FutureOrbitPath : MonoBehaviour
     {
         gravityObjects = new List<GravityObjectHandler>();
         if (Application.isPlaying && showWhenPlaying)
-        {
             DrawPath();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!Application.isPlaying && showWhileEditing)
-        {
             DrawPath();
-        }
     }
 
     void DrawPath()
@@ -51,11 +47,12 @@ public class FutureOrbitPath : MonoBehaviour
 
             for (int i = 0; i < gravityObjectsData.Length; i++)
             {
-                if (!gravityObjectsData[i].frozen)
+                GravityObjectData gravityObjectData = gravityObjectsData[i]; 
+                if (!gravityObjectData.frozen)
                 {
-                    Vector3 updatedPosition = gravityObjectsData[i].position + gravityObjectsData[i].velocity * timeStep;
-                    gravityObjectsData[i].position = updatedPosition;
-                    if (gravityObjectsData[i].showFuturePath)
+                    Vector3 updatedPosition = gravityObjectData.position + gravityObjectData.velocity * timeStep;
+                    gravityObjectData.position = updatedPosition;
+                    if (gravityObjectData.showFuturePath)
                         linePoints[i][iteration] = updatedPosition;
                 }
             }
@@ -81,12 +78,13 @@ public class FutureOrbitPath : MonoBehaviour
         Vector3 acceleration = Vector3.zero;
         for (int j = 0; j < gravityObjectsData.Length; j++)
         {
-            if (gravityObjectData == gravityObjectsData[j])
+            GravityObjectData otherGravityObjectData = gravityObjectsData[j];
+            if (gravityObjectData == otherGravityObjectData)
                 continue;
 
-            Vector3 direction = gravityObjectsData[j].position - gravityObjectData.position;
+            Vector3 direction = otherGravityObjectData.position - gravityObjectData.position;
             float sqrDst = direction.sqrMagnitude;
-            acceleration += direction.normalized * gravityObjectsData[j].mass / sqrDst;
+            acceleration += direction.normalized * otherGravityObjectData.mass / sqrDst;
         }
         return 0.0667428f * acceleration;
     }
@@ -111,7 +109,6 @@ public class FutureOrbitPath : MonoBehaviour
             showFuturePath = gravityObject.showFuturePath;
             if (gravityObject.useDensity)
             {
-                Transform[] children = gravityObject.GetComponentsInChildren<Transform>();
                 float totalVolume = 1;
                 foreach (MeshFilter meshFilter in gravityObject.gameObject.GetComponentsInChildren<MeshFilter>())
                 {

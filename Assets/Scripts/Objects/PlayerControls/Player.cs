@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     //SerializeField makes private or protected variables visible in the inspector, so that we can still change it in unity 
     //Set the speed of the player while walking
     [SerializeField]
-    private float playerSpeed;
+    private float playerSpeed = 5;
     //make variable for each of the walls
     //make it public so that we can assign walls to the GameObjects in Unity
     /*public GameObject leftWall;

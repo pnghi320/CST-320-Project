@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class GazeableObject : MonoBehaviour
 {
-    //to apply the right open/close interaction to the door
-    private bool doorIsOpen = false;
     public bool isInteractable =  false;
     //some obj we can't transform and some we can't
     public bool isTransformable = false;
