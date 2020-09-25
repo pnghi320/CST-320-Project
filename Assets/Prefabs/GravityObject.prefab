@@ -46,6 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initalVelocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 5782144242912127393}
+  useDensity: 0
+  density: 10
+  showFuturePath: 1
+  showHistoricPath: 0
 --- !u!54 &5782144242912127393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -54,7 +58,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6385895874832596590}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0

@@ -12,6 +12,8 @@ public class GravityObjectHandler : MonoBehaviour
     public Rigidbody rb;
     public bool useDensity;
     public float density = 10;
+    public bool showFuturePath = true;
+    public bool showHistoricPath = false;
 
     float objectVolume = 0;
 
