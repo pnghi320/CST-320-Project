@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initalVelocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 5782144242912127393}
+  useDensity: 0
+  density: 10
 --- !u!54 &5782144242912127393
 Rigidbody:
   m_ObjectHideFlags: 0
