@@ -8,12 +8,15 @@ public class FutureOrbitPath : MonoBehaviour
 {
     public List<GravityObjectHandler> gravityObjects;
     public int iterations = 1000;
-    public float deltaTime = 0.02f;
+    public float timeStep = 0.02f;
+    public float playingPersistTime = 10;
+    public bool showWhileEditing = true;
+    public bool showWhenPlaying = false;
 
     void Start()
     {
         gravityObjects = new List<GravityObjectHandler>();
-        if (Application.isPlaying)
+        if (Application.isPlaying && showWhenPlaying)
         {
             DrawPath();
         }
@@ -22,7 +25,7 @@ public class FutureOrbitPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying && showWhileEditing)
         {
             DrawPath();
         }
@@ -42,30 +45,34 @@ public class FutureOrbitPath : MonoBehaviour
 
         for (int iteration = 0; iteration < iterations; iteration++)
         {
-            foreach (var gravityObjectData in gravityObjectsData)
+            foreach (GravityObjectData gravityObjectData in gravityObjectsData)
                 if (!gravityObjectData.frozen)
-                    gravityObjectData.velocity += GravityAcceleration(gravityObjectData, gravityObjectsData) * deltaTime;
+                    gravityObjectData.velocity += GravityAcceleration(gravityObjectData, gravityObjectsData) * timeStep;
 
             for (int i = 0; i < gravityObjectsData.Length; i++)
             {
-                if (gravityObjectsData[i].frozen)
+                if (!gravityObjectsData[i].frozen)
                 {
-                    linePoints[i][iteration] = gravityObjectsData[i].position;
-                } else
-                {
-                    Vector3 updatedPosition = gravityObjectsData[i].position + gravityObjectsData[i].velocity * deltaTime;
+                    Vector3 updatedPosition = gravityObjectsData[i].position + gravityObjectsData[i].velocity * timeStep;
                     gravityObjectsData[i].position = updatedPosition;
-                    linePoints[i][iteration] = updatedPosition;
+                    if (gravityObjectsData[i].showFuturePath)
+                        linePoints[i][iteration] = updatedPosition;
                 }
             }
         }
 
         for (int j = 0; j < gravityObjectsData.Length; j++)
         {
-            var lineColor = gravityObjects[j].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color; //
+            if (gravityObjectsData[j].showFuturePath && !gravityObjectsData[j].frozen)
+            {
+                Color lineColor = gravityObjects[j].gameObject.GetComponentInChildren<MeshRenderer>().sharedMaterial.color; //
 
-            for (int i = 0; i < linePoints[j].Length - 1; i++)
-                Debug.DrawLine(linePoints[j][i], linePoints[j][i + 1], lineColor, 10);
+                for (int i = 0; i < linePoints[j].Length - 1; i++)
+                    if (Application.isPlaying)
+                        Debug.DrawLine(linePoints[j][i], linePoints[j][i + 1], lineColor, playingPersistTime);
+                    else
+                        Debug.DrawLine(linePoints[j][i], linePoints[j][i + 1], lineColor);
+            }
         }
     }
 
@@ -93,6 +100,7 @@ public class FutureOrbitPath : MonoBehaviour
     {
         public Vector3 position;
         public Vector3 velocity;
+        public bool showFuturePath;
         public float mass;
         public bool frozen;
 
@@ -100,6 +108,7 @@ public class FutureOrbitPath : MonoBehaviour
         {
             position = gravityObject.transform.position;
             velocity = gravityObject.initalVelocity;
+            showFuturePath = gravityObject.showFuturePath;
             if (gravityObject.useDensity)
             {
                 Transform[] children = gravityObject.GetComponentsInChildren<Transform>();

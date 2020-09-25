@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: initalVelocity.z
-      value: -5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
@@ -667,6 +667,16 @@ PrefabInstance:
     - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: useDensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: initalVelocity.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: initalVelocity.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
@@ -744,7 +754,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityObjects: []
   iterations: 10000
-  deltaTime: 0.02
+  timeStep: 0.02
+  playingPersistTime: 100
+  showWhileEditing: 1
+  showWhenPlaying: 1
 --- !u!4 &1344012392
 Transform:
   m_ObjectHideFlags: 0
@@ -824,17 +837,42 @@ PrefabInstance:
     - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: initalVelocity.z
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: density
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: showFuturePath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: showHistoricPath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: initalVelocity.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: initalVelocity.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_Mass
       value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6385895874832596590, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
