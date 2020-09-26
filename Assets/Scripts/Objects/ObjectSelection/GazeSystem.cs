@@ -7,12 +7,6 @@ using UnityEngine;
 //the gazesystem class inherents from the MonoBehaviror class
 public class GazeSystem : MonoBehaviour {
     
-    //public GameObject reticle;
-
-    //public Color inactiveReticleColor = Color.gray;
-    //public Color activeReticleColor = Color.green;
-    
-
     //get the type GazeableObject from the other file
     private GazeableObject currentGazeObject;
     //to keep track on what objct do we select (press down)
@@ -22,8 +16,6 @@ public class GazeSystem : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //when we first start the game the reticle should has gray color since it is not in touch with any interable obj
-        //SetReticleColor (inactiveReticleColor);
     }
         
     // Update is called once per frame
@@ -42,10 +34,6 @@ public class GazeSystem : MonoBehaviour {
 
         if(Physics.Raycast(raycastRay, out hitInfo))
         {
-            // Do something to the object
-
-            // Check if the object is interactable
-
             // Get the GameObject from the hitInfo
             GameObject hitObj = hitInfo.collider.gameObject;
 
@@ -85,15 +73,6 @@ public class GazeSystem : MonoBehaviour {
             ClearCurrentObject ();
         }
     }
-
-    /*private void SetReticleColor(Color reticleColor)
-    {
-        // Set the color of the reticle
-        reticle.GetComponent<Renderer>().material.SetColor("_Color", reticleColor);
-    }
-    */
-
-
     private void CheckforInput(RaycastHit hitInfo)
     {
 
