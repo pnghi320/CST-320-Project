@@ -57,9 +57,6 @@ public class Player : MonoBehaviour
             //create a vector3 coming straight out of the raycast 
             //the vector3 variable returns 3 floats that represent the position x, y, z of the obj
             Vector3 forward = Camera.main.transform.forward;
-            //transformPosition is our current position right now; forward is the the distance bw our postion and the destination; forward * Time.deltaTime 
-            //is to make up for the delay if the computer is laggy (will arrive at the same place with the same time); Time.deltaTime * playerSpeed 
-            //is so that we can control the speed more easily
             Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
             transform.position = newPosition;
         }

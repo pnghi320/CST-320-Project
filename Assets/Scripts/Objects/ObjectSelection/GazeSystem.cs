@@ -50,7 +50,6 @@ public class GazeSystem : MonoBehaviour {
                     ClearCurrentObject ();
                     currentGazeObject = gazeObj;
                     currentGazeObject.OnGazeEnter(hitInfo);
-                    //SetReticleColor(activeReticleColor);
 
                 } 
                 else 
@@ -77,7 +76,6 @@ public class GazeSystem : MonoBehaviour {
     {
 
         // Check for down press
-        //with GetMouseButtonDown(0), 0 stand for the left mouse click or a quick push on the google cardboard.
         if (Input.GetMouseButtonDown(0) && currentGazeObject != null)
         {
             currentSelectedObject = currentGazeObject;
@@ -85,7 +83,6 @@ public class GazeSystem : MonoBehaviour {
         }
 
         // Check for hold
-        // the GetMouseButton(0) check for button position continuously and stop the loop when we release the button
         else if (Input.GetMouseButton(0) && currentSelectedObject != null)
         {
             currentSelectedObject.OnHold(hitInfo);
@@ -104,8 +101,6 @@ public class GazeSystem : MonoBehaviour {
         if(currentGazeObject != null){
             //finish looking at the current obj
             currentGazeObject.OnGazeExit();
-            //change the reticle color to gray
-            //SetReticleColor(inactiveReticleColor);
             //clear the current currentGazeObject
             currentGazeObject = null;
         }

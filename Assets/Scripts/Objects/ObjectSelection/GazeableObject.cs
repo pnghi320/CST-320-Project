@@ -134,12 +134,12 @@ public class GazeableObject : MonoBehaviour
     //for creating new planet
     public virtual void CreatePlanet(RaycastHit hitInfo)
     {
-        GameObject placedFurniture = GameObject.Instantiate(Player.instance.activePlanetPrefab) as GameObject;
+        GameObject placedPlanet = GameObject.Instantiate(Player.instance.activePlanetPrefab) as GameObject;
         var pos = transform.position;
         pos.z = hitInfo.point.z;
         pos.x = hitInfo.point.x;
         pos.y = hitInfo.point.y + 10;
-        placedFurniture.transform.position = pos;
+        placedPlanet.transform.position = pos;
     }
 
     //for scalling the obj
