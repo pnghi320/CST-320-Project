@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Attached to the main camera
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -864,6 +864,11 @@ PrefabInstance:
       propertyPath: initalVelocity.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_Mass

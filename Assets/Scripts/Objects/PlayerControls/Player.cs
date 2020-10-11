@@ -8,14 +8,11 @@ using UnityEngine;
 //enum : set of name constant
 public enum InputMode{
     NONE,
-    TELEPORT,
     WALK,
     CREATE,
     TRANSLATE,
     ROTATE,
     SCALE,
-    //DRAG,
-    //INTERACT
 }
 
 
@@ -26,24 +23,11 @@ public class Player : MonoBehaviour
     //you can access this instance anywhere in the code by using Player.instance
     public static Player instance;
     public InputMode activeMode = InputMode.NONE;
-    //keep track of what kind of furniture is being created during the game
-    public Object activeFurniturePrefab;
+    //keep track of what kind of planet is being created during the game
+    public Object activePlanetPrefab;
     
-    //SerializeField makes private or protected variables visible in the inspector, so that we can still change it in unity 
     //Set the speed of the player while walking
-    [SerializeField]
-    private float playerSpeed = 5;
-    //make variable for each of the walls
-    //make it public so that we can assign walls to the GameObjects in Unity
-    /*public GameObject leftWall;
-    public GameObject rightWall;
-
-    public GameObject forwardWall;
-    public GameObject backWall;
-    public GameObject floor;
-    public GameObject ceiling;*/
-    
-
+    public float playerSpeed = 5;
     //This runs before start to make sure there is only one player object in the game
     //can run even if the script component is unchecked, unlike Start(). 
     void Awake(){
@@ -54,10 +38,7 @@ public class Player : MonoBehaviour
         }
         instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -72,17 +53,8 @@ public class Player : MonoBehaviour
             //create a vector3 coming straight out of the raycast 
             //the vector3 variable returns 3 floats that represent the position x, y, z of the obj
             Vector3 forward = Camera.main.transform.forward;
-            //transformPosition is our current position right now; forward is the the distance bw our postion and the destination; forward * Time.deltaTime 
-            //is to make up for the delay if the computer is laggy (will arrive at the same place with the same time); Time.deltaTime * playerSpeed 
-            //is so that we can control the speed more easily
             Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
-            
-            //if (newPosition.x < rightWall.transform.position.x && newPosition.x > leftWall.transform.position.x &&
-            //   newPosition.y < ceiling.transform.position.y && newPosition.y > floor.transform.position.y &&
-            //    newPosition.z > backWall.transform.position.z && newPosition.z < forwardWall.transform.position.z)
-            //{
             transform.position = newPosition;
-            //}
         }
     }
 }
