@@ -10,8 +10,10 @@ public class GravityObjectHandler : MonoBehaviour
 
     public Vector3 initalVelocity;
     public Rigidbody rb;
-    public bool useDensity;
+    public bool useDensity = false;
     public float density = 10;
+    public bool moveByGravity = true;
+    public bool affectGravity = true;
     public bool showFuturePath = true;
     public bool showHistoricPath = false;
 
@@ -54,11 +56,11 @@ public class GravityObjectHandler : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb.isKinematic) return;
+        if (rb.isKinematic || !moveByGravity) return;
         Vector3 summedAcceleration = Vector3.zero;
         foreach (GravityObjectHandler gravityObject in gravityObjects)
         {
-            if (gravityObject != this)
+            if (gravityObject != this && gravityObject.affectGravity)
             {
                 // F = G * ((m1 * m2) / r^2)
                 Vector3 direction = gravityObject.rb.position - rb.position;

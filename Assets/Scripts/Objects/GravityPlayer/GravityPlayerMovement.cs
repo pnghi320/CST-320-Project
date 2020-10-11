@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class GravityPlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float distanceToGround = 0.1f;
+
+    bool IsGrounded(Vector3 downDirection)
     {
-        
+        Debug.DrawRay(transform.position, downDirection * distanceToGround, Color.red);
+        return Physics.Raycast(transform.position, downDirection, distanceToGround);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        FixRotation(-FindDownDirection());
+        Vector3 downDirection = FindDownDirection();
+        Debug.Log(downDirection);
+        if (IsGrounded(downDirection))
+        {
+            GetComponent<GravityObjectHandler>().moveByGravity = false;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        } else
+        {
+            GetComponent<GravityObjectHandler>().moveByGravity = true;
+        }
+        //Debug.Log(GetComponent<GravityObjectHandler>().moveByGravity);
+        FixRotation(-downDirection);
     }
 
     Vector3 FindDownDirection()
     {
         GravityObjectHandler thisGravityHandler = GetComponent<GravityObjectHandler>();
-
-        
 
         GravityObjectHandler[] gravityObjects = FindObjectsOfType<GravityObjectHandler>();
         if (gravityObjects.Length == 0) return Vector3.zero;
@@ -45,6 +55,6 @@ public class GravityPlayerMovement : MonoBehaviour
 
     void FixRotation(Vector3 upDirection)
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, upDirection);
+        transform.rotation = Quaternion.LookRotation(Vector3.Cross(Vector3.forward, upDirection), upDirection);
     }
 }

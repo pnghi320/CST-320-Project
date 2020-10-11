@@ -79,7 +79,7 @@ public class FutureOrbitPath : MonoBehaviour
         for (int j = 0; j < gravityObjectsData.Length; j++)
         {
             GravityObjectData otherGravityObjectData = gravityObjectsData[j];
-            if (gravityObjectData == otherGravityObjectData)
+            if (gravityObjectData == otherGravityObjectData || !otherGravityObjectData.affectGravity)
                 continue;
 
             Vector3 direction = otherGravityObjectData.position - gravityObjectData.position;
@@ -101,6 +101,7 @@ public class FutureOrbitPath : MonoBehaviour
         public bool showFuturePath;
         public float mass;
         public bool frozen;
+        public bool affectGravity;
 
         public GravityObjectData(GravityObjectHandler gravityObject)
         {
@@ -120,7 +121,8 @@ public class FutureOrbitPath : MonoBehaviour
                 gravityObject.rb.mass = totalVolume * gravityObject.density;
             }
             mass = gravityObject.rb.mass;
-            frozen = gravityObject.rb.isKinematic;
+            frozen = gravityObject.rb.isKinematic || !gravityObject.moveByGravity;
+            affectGravity = gravityObject.affectGravity;
         }
     }
 }
