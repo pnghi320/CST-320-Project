@@ -25,10 +25,9 @@ public class Player : MonoBehaviour
     public InputMode activeMode = InputMode.NONE;
     //keep track of what kind of planet is being created during the game
     public Object activePlanetPrefab;
-    //SerializeField makes private or protected variables visible in the inspector, so that we can still change it in unity 
+    
     //Set the speed of the player while walking
-    [SerializeField]
-    private float playerSpeed = 5;
+    public float playerSpeed = 5;
     //This runs before start to make sure there is only one player object in the game
     //can run even if the script component is unchecked, unlike Start(). 
     void Awake(){
@@ -39,10 +38,7 @@ public class Player : MonoBehaviour
         }
         instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+
 
     // Update is called once per frame
     void Update()

@@ -14,10 +14,7 @@ public class GazeSystem : MonoBehaviour {
     //the last sucessful hit when we keep pressing on the button but moving our eye sight to a ungazeable object
     private RaycastHit lastHit;
 
-    // Use this for initialization
-    void Start () {
-    }
-        
+      
     // Update is called once per frame
     void Update () {
         ProcessGaze ();

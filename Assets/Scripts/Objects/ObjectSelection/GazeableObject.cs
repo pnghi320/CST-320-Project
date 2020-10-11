@@ -189,13 +189,10 @@ public class GazeableObject : MonoBehaviour
         {
             case InputMode.TRANSLATE:
                 GazeTranslate(hitInfo);
-                break;
             case InputMode.ROTATE:
                 GazeRotate(hitInfo);
-                break;
             case InputMode.SCALE:
                 GazeScale(hitInfo);
-                break;
         }
     }
 }
