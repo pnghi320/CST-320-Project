@@ -5,27 +5,34 @@ using UnityEngine;
 public class GravityPlayerMovement : MonoBehaviour
 {
     public float distanceToGround = 0.1f;
+    public float speed = 5f;
+    public float spaceForce = 50f; // I just wanted a variable named space force
 
     bool IsGrounded(Vector3 downDirection)
     {
-        Debug.DrawRay(transform.position, downDirection * distanceToGround, Color.red);
         return Physics.Raycast(transform.position, downDirection, distanceToGround);
     }
 
     void Update()
     {
         Vector3 downDirection = FindDownDirection();
-        Debug.Log(downDirection);
+
+        FixRotation(-downDirection);
         if (IsGrounded(downDirection))
         {
             GetComponent<GravityObjectHandler>().moveByGravity = false;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-        } else
+            Rigidbody rb = GetComponent<Rigidbody>();
+            Vector3 velocity = speed * (Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                velocity += transform.up * spaceForce / rb.mass;
+            }
+            rb.velocity = velocity;
+        }
+        else
         {
             GetComponent<GravityObjectHandler>().moveByGravity = true;
         }
-        //Debug.Log(GetComponent<GravityObjectHandler>().moveByGravity);
-        FixRotation(-downDirection);
     }
 
     Vector3 FindDownDirection()
