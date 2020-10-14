@@ -571,10 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!1 &295829103
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,10 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!4 &400024966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 639362499635854829, guid: 895ceb15d0c270b4a96c84c5246dd119,
@@ -2216,10 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,10 +3059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
   isTransformable: 0
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!114 &1212922764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3084,10 +3072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5f1cc7455c4aa985883d0b27968ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
   isTransformable: 0
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!1 &1224806368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,10 +4011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!1 &1546840311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,10 +4385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!43 &1793760725
 Mesh:
   m_ObjectHideFlags: 0
@@ -4678,8 +4657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5b021b95c71468abf7849b2e327106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeMode: 3
-  activeFurniturePrefab: {fileID: 1702967559}
+  activeMode: 2
+  activePlanetPrefab: {fileID: 2098048150}
   playerSpeed: 20
 --- !u!1 &2020914466
 GameObject:
@@ -5010,10 +4989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c029a078c6243b2b21d1564dfdb716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 1
   isTransformable: 1
-  Notice: {fileID: 0}
-  controlledLight01: {fileID: 0}
 --- !u!1 &2127208624
 GameObject:
   m_ObjectHideFlags: 0
