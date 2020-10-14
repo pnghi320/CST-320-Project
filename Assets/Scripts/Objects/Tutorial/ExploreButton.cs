@@ -5,33 +5,38 @@ using UnityEngine.UI;
 
 public class ExploreButton : MonoBehaviour
 {
+    Text text;
+    Button button;
     Camera mainCam;
-    public Text theText;
-    public Button theButton;
-    Color32 activeColor = new Color32(161, 231, 106, 255);
+    Color activeColor = new Color32(161, 231, 106, 255);
+    Color inactiveColor;
+    bool isExploring = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCam = Camera.main;
-		Button btn = theButton.GetComponent<Button>();
-		btn.onClick.AddListener(TaskOnClick);
+        text = GetComponentInChildren<Text>();
+        inactiveColor = text.color;
+        button = GetComponent<Button>();
+        button.onClick.AddListener(TaskOnClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void TaskOnClick(){
         //enable the CameraPerspective attached to the main camera
-        mainCam.GetComponent<CameraPerspective>().enabled = true;
         //set player mode to: Walk
-        Player.instance.activeMode = InputMode.WALK;
-        //change the button text color
-        theText.color = activeColor;
-        //
-        
-
+        if (isExploring)
+        {
+            mainCam.GetComponent<CameraPerspective>().enabled = false;
+            Player.instance.activeMode = InputMode.NONE;
+            //change the button text color
+            text.color = inactiveColor;
+        } else
+        {
+            mainCam.GetComponent<CameraPerspective>().enabled = true;
+            Player.instance.activeMode = InputMode.WALK;
+            //change the button text color
+            text.color = activeColor;
+        }
+        isExploring = !isExploring;
 	}
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 //keep track of what mood we are in
 //enum : set of name constant
 public enum InputMode{
@@ -14,7 +12,6 @@ public enum InputMode{
     ROTATE,
     SCALE,
 }
-
 
 
 //use singleton design pattern: only one instance of the class appears
@@ -34,7 +31,7 @@ public class Player : MonoBehaviour
         //this should not happen because there is only one player object in the game. But just in case that there are two
         //we will destroy the 2nd player.
         if (instance != null){
-            GameObject.Destroy(instance.gameObject);
+            Destroy(instance.gameObject);
         }
         instance = this;
     }
@@ -48,12 +45,14 @@ public class Player : MonoBehaviour
 
     //check if the trigger is being held, if we're in the right mode to walk, or if we'll be within bound later
     public void TryWalk(){
-        if (Input.GetMouseButton(0) && activeMode == InputMode.WALK)
+        if (activeMode == InputMode.WALK)
         {
             //create a vector3 coming straight out of the raycast 
             //the vector3 variable returns 3 floats that represent the position x, y, z of the obj
-            Vector3 forward = Camera.main.transform.forward;
-            Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
+            Transform camTransform = Camera.main.transform;
+            Vector3 direction = Input.GetAxis("Horizontal") * camTransform.right + Input.GetAxis("Vertical") * camTransform.forward + Input.GetAxis("UpDown") * camTransform.up;
+            
+            Vector3 newPosition = transform.position + (direction * Time.deltaTime * playerSpeed);
             transform.position = newPosition;
         }
     }
