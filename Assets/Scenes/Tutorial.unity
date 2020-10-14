@@ -1652,6 +1652,7 @@ GameObject:
   - component: {fileID: 963558196}
   - component: {fileID: 963558195}
   - component: {fileID: 963558194}
+  - component: {fileID: 963558197}
   m_Layer: 5
   m_Name: Explore
   m_TagString: Untagged
@@ -1760,6 +1761,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963558192}
   m_CullTransparentMesh: 0
+--- !u!114 &963558197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963558192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581f86e50414a46db8f4e4f1e3f9b49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theText: {fileID: 1385737061}
+  theButton: {fileID: 963558194}
 --- !u!1 &1102383150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,14 +3062,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860700589}
-  m_LocalRotation: {x: 0.4363111, y: -0, z: -0, w: 0.89979583}
-  m_LocalPosition: {x: 0, y: 128.3, z: -117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 35, z: -158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 51.738, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1860700591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,14 +3077,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860700589}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa5b021b95c71468abf7849b2e327106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeMode: 2
+  activeMode: 1
   activePlanetPrefab: {fileID: 2098048150}
-  playerSpeed: 20
+  playerSpeed: 50
 --- !u!1 &1907599258
 GameObject:
   m_ObjectHideFlags: 0
