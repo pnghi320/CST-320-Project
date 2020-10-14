@@ -16,6 +16,9 @@ public class GravityObjectHandler : MonoBehaviour
     public bool affectGravity = true;
     public bool showFuturePath = true;
     public bool showHistoricPath = false;
+    public Color trailColor;
+    [HideInInspector]
+    public Vector3 lastVelocityChange;
 
     float objectVolume = 0;
 
@@ -51,7 +54,18 @@ public class GravityObjectHandler : MonoBehaviour
 
     void Update()
     {
+        TrailRenderer trailRenderer = GetComponent<TrailRenderer>();
+        if (!trailRenderer) return;
+        trailRenderer.enabled = showHistoricPath;
+        if (!showHistoricPath) return;
 
+        float alpha = 1.0f;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(trailColor, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        trailRenderer.colorGradient = gradient;
     }
 
     void FixedUpdate()
@@ -71,7 +85,8 @@ public class GravityObjectHandler : MonoBehaviour
             }
         }
 
-        rb.velocity += GRAVITY * summedAcceleration * Time.fixedDeltaTime;
+        lastVelocityChange = GRAVITY * summedAcceleration * Time.fixedDeltaTime;
+        rb.velocity += lastVelocityChange;
     }
 
     void OnDrawGizmos()

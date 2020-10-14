@@ -115,7 +115,7 @@ public class FutureOrbitPath : MonoBehaviour
                 {
                     Vector3 objectSize = meshFilter.transform.localScale;
                     float volume = objectSize[0] * objectSize[1] * objectSize[2];
-                    totalVolume *= Utils.VolumeOfMesh(meshFilter.mesh) * volume;
+                    totalVolume *= Utils.VolumeOfMesh(meshFilter.sharedMesh) * volume;
                 }
 
                 gravityObject.rb.mass = totalVolume * gravityObject.density;

@@ -27,7 +27,8 @@ public class GravityPlayerMovement : MonoBehaviour
             {
                 velocity += transform.up * spaceForce / rb.mass;
             }
-            rb.velocity = velocity;
+            rb.velocity = velocity;//+ GetMaxAttractor().lastVelocityChange;
+            Debug.Log(rb.velocity);
         }
         else
         {
@@ -35,14 +36,13 @@ public class GravityPlayerMovement : MonoBehaviour
         }
     }
 
-    Vector3 FindDownDirection()
+    GravityObjectHandler GetMaxAttractor()
     {
         GravityObjectHandler thisGravityHandler = GetComponent<GravityObjectHandler>();
 
         GravityObjectHandler[] gravityObjects = FindObjectsOfType<GravityObjectHandler>();
-        if (gravityObjects.Length == 0) return Vector3.zero;
         float maxAttraction = 0;
-        Vector3 maxAttractorLocation = Vector3.zero;
+        GravityObjectHandler maxAttractor = null;
         foreach (GravityObjectHandler gravityObject in gravityObjects)
         {
             if (gravityObject == thisGravityHandler) continue;
@@ -53,9 +53,16 @@ public class GravityPlayerMovement : MonoBehaviour
             if (attraction > maxAttraction)
             {
                 maxAttraction = attraction;
-                maxAttractorLocation = gravityObject.transform.position;
+                maxAttractor = gravityObject;
             }
         }
+
+        return maxAttractor;
+    }
+
+    Vector3 FindDownDirection()
+    {
+        Vector3 maxAttractorLocation = GetMaxAttractor().transform.position;
 
         return (maxAttractorLocation - transform.position).normalized;
     }
