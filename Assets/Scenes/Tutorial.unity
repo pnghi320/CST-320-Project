@@ -1089,6 +1089,26 @@ PrefabInstance:
       propertyPath: initalVelocity.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.g
+      value: 0.32289028
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: showHistoricPath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_Mass
@@ -1470,7 +1490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917aeb619813549b099a8d8472f747f4, type: 3}
   m_Name: 
@@ -3541,6 +3561,26 @@ PrefabInstance:
         type: 3}
       propertyPath: initalVelocity.z
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: showHistoricPath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.g
+      value: 0.98902893
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829404475953750541, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: trailColor.b
+      value: 0.3169812
       objectReference: {fileID: 0}
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
