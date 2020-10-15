@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     
     //Set the speed of the player while walking
     public float playerSpeed = 5;
+
+    public bool mouseMovementMode = true;
+
     //This runs before start to make sure there is only one player object in the game
     //can run even if the script component is unchecked, unlike Start(). 
     void Awake(){
@@ -47,13 +50,20 @@ public class Player : MonoBehaviour
     public void TryWalk(){
         if (activeMode == InputMode.WALK)
         {
-            //create a vector3 coming straight out of the raycast 
-            //the vector3 variable returns 3 floats that represent the position x, y, z of the obj
-            Transform camTransform = Camera.main.transform;
-            Vector3 direction = Input.GetAxis("Horizontal") * camTransform.right + Input.GetAxis("Vertical") * camTransform.forward + Input.GetAxis("UpDown") * camTransform.up;
-            
-            Vector3 newPosition = transform.position + (direction * Time.deltaTime * playerSpeed);
-            transform.position = newPosition;
+            if (mouseMovementMode)
+            {
+                Vector3 forward = Camera.main.transform.forward;
+                Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
+                transform.position = newPosition;
+            }
+            else
+            {
+                Transform camTransform = Camera.main.transform;
+                Vector3 direction = Input.GetAxis("Horizontal") * camTransform.right + Input.GetAxis("Vertical") * camTransform.forward + Input.GetAxis("UpDown") * camTransform.up;
+
+                Vector3 newPosition = transform.position + (direction * Time.deltaTime * playerSpeed);
+                transform.position = newPosition;
+            }
         }
     }
 }
