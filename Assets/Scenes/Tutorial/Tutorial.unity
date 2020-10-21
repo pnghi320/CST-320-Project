@@ -1497,6 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedH: 5
   speedV: 5
+  truckMode: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,6 +3104,7 @@ MonoBehaviour:
   activeMode: 1
   activePlanetPrefab: {fileID: 2098048150}
   playerSpeed: 50
+  mouseMovementMode: 1
 --- !u!1 &1907599258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,6 +3474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 195480017}
     m_Modifications:
+    - target: {fileID: -3840551815812449532, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 639362499635854829, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3595,6 +3602,11 @@ PrefabInstance:
     - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
         type: 3}
       propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782144242912127393, guid: 895ceb15d0c270b4a96c84c5246dd119,
+        type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6385895874832596590, guid: 895ceb15d0c270b4a96c84c5246dd119,

@@ -28,7 +28,6 @@ public class GravityPlayerMovement : MonoBehaviour
                 velocity += transform.up * spaceForce / rb.mass;
             }
             rb.velocity = velocity;//+ GetMaxAttractor().lastVelocityChange;
-            Debug.Log(rb.velocity);
         }
         else
         {

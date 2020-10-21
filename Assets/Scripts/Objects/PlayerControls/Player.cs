@@ -52,9 +52,12 @@ public class Player : MonoBehaviour
         {
             if (mouseMovementMode)
             {
-                Vector3 forward = Camera.main.transform.forward;
-                Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
-                transform.position = newPosition;
+                if (Input.GetMouseButton(0))
+                {
+                    Vector3 forward = Camera.main.transform.forward;
+                    Vector3 newPosition = transform.position + forward * Time.deltaTime * playerSpeed;
+                    transform.position = newPosition;
+                }
             }
             else
             {
