@@ -23,6 +23,6 @@ public class Part1 : MonoBehaviour
     void LoadPart1()
     {
         UnityEngine.Debug.Log("Button clicked");
-        SceneManager.LoadScene("Part1Scene1");
+        SceneManager.LoadScene("Scenes/Tutorial/Tutorial");
     }
 }
