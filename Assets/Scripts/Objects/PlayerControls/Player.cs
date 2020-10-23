@@ -6,6 +6,7 @@ using UnityEngine;
 //enum : set of name constant
 public enum InputMode{
     NONE,
+    EDIT,
     WALK,
     CREATE,
     TRANSLATE,

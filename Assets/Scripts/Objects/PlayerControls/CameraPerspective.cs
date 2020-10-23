@@ -26,6 +26,7 @@ public class CameraPerspective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (truckMode)
         {
             yaw += speedH * Input.GetAxis("Mouse X") / 100;
