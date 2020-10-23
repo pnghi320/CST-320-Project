@@ -782,10 +782,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 825790372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947cab25b2040e34ab0098607b81df83, type: 3}
+  m_Script: {fileID: 11500000, guid: 63d17ad536dfe8f43b745b8cf2e1effa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOne: {fileID: 825790375}
+  button: {fileID: 825790375}
+  scenePath: Scenes/Tutorial/Tutorial
 --- !u!114 &825790375
 MonoBehaviour:
   m_ObjectHideFlags: 0
