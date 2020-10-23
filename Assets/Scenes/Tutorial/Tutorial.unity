@@ -1888,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExploring: 0
+  changedMode: 0
   player: {fileID: 1860700589}
 --- !u!1 &1003822365
 GameObject:
@@ -2142,6 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df58ec01f9e0e4581b4b83bdc25aad01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraController: {fileID: 0}
   exploreButton: {fileID: 963558192}
   mode: {fileID: 949721543}
 --- !u!1 &1212922758
@@ -3258,7 +3260,7 @@ MonoBehaviour:
   views:
   - {fileID: 1003822366}
   - {fileID: 279155625}
-  transitionSpeed: 3
+  transitionSpeed: 4
 --- !u!114 &1860700593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,7 +3275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedH: 3
   speedV: 3
-  truckMode: 1
+  truckMode: 0
 --- !u!1 &1907599258
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class ExploreButton : MonoBehaviour
     Color activeColor = new Color32(161, 231, 106, 255);
     Color inactiveColor;
     public bool isExploring = false;
+    public bool changedMode = false;
     public GameObject player;
     void Start()
     {
@@ -19,7 +20,9 @@ public class ExploreButton : MonoBehaviour
         button.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick(){
+    void TaskOnClick()
+    {
+
 
         //enable the CameraPerspective attached to the main camera
         //set player mode to: Walk
@@ -31,15 +34,20 @@ public class ExploreButton : MonoBehaviour
             //change the button text color
             text.color = inactiveColor;
             isExploring = false;
-        } else
-        {
-            player.GetComponent<CameraController>().enabled = false;
-            player.GetComponent<CameraPerspective>().enabled = true;
-            Player.instance.activeMode = InputMode.WALK;
-            //change the button text color
-            text.color = activeColor;
-            isExploring = true;
-            
         }
-	}
+        else
+        {
+            changedMode = true;
+            text.color = activeColor;
+            Invoke("DealyedFunction", 1.0f);
+        }
+    }
+    void DealyedFunction()
+    {
+        Player.instance.activeMode = InputMode.WALK;
+        player.GetComponent<CameraController>().enabled = false;
+        player.GetComponent<CameraPerspective>().enabled = true;
+        isExploring = true;
+
+    }
 }

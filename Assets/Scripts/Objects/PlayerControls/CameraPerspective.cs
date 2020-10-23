@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CameraPerspective : MonoBehaviour
 {
+    bool disabled = false;
     public float speedH = 3f;
     public float speedV = 3f;
 
@@ -18,15 +19,22 @@ public class CameraPerspective : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
         //Cursor.lockState = CursorLockMode.Locked;
 
     }
-
+    void OnDisable()
+    {
+        disabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        if (disabled){
+            disabled = false;
+            yaw = 0.0f;
+            pitch = 0.0f;
+        }
         if (truckMode)
         {
             yaw += speedH * Input.GetAxis("Mouse X") / 100;
