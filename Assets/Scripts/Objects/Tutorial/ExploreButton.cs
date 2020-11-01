@@ -34,20 +34,22 @@ public class ExploreButton : MonoBehaviour
             //change the button text color
             text.color = inactiveColor;
             isExploring = false;
+
+            PhysicsFreeze.instance.ClearFreeze();
         }
         else
         {
             changedMode = true;
             text.color = activeColor;
-            Invoke("DealyedFunction", 1.0f);
+            PhysicsFreeze.instance.Freeze();
+            Invoke("DelayedFunction", 1.0f);
         }
     }
-    void DealyedFunction()
+    void DelayedFunction()
     {
         Player.instance.activeMode = InputMode.WALK;
         player.GetComponent<CameraController>().enabled = false;
         player.GetComponent<CameraPerspective>().enabled = true;
         isExploring = true;
-
     }
 }
