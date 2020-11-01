@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 120332786}
   - component: {fileID: 120332785}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 203822449}
   - component: {fileID: 203822448}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 825790375}
   - component: {fileID: 825790374}
   m_Layer: 5
-  m_Name: Tutorial 1
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,10 +782,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 825790372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947cab25b2040e34ab0098607b81df83, type: 3}
+  m_Script: {fileID: 11500000, guid: 63d17ad536dfe8f43b745b8cf2e1effa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOne: {fileID: 825790375}
+  button: {fileID: 825790375}
+  scenePath: Scenes/Tutorial/Tutorial
 --- !u!114 &825790375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1301,7 @@ GameObject:
   - component: {fileID: 1665954823}
   - component: {fileID: 1665954822}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1805,12 +1806,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 230
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

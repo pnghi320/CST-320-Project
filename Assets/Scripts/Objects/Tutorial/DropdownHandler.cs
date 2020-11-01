@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DropdownHandler : MonoBehaviour
 {
+    public GameObject CameraController;
     public GameObject exploreButton;
     public GameObject mode;
     private Text mod;
@@ -32,6 +33,7 @@ public class DropdownHandler : MonoBehaviour
         if (dropdown.options[index].text == "Create" && !init){
             if (exploreButton.GetComponent<ExploreButton>().isExploring){
                 exploreButton.GetComponent<Button>().onClick.Invoke();
+                Debug.Log("eHHIUHWRE");
             }
             //Player.instance.activeMode = InputMode.NONE;
             Player.instance.activeMode = InputMode.CREATE;
@@ -60,9 +62,15 @@ public class DropdownHandler : MonoBehaviour
         
     }
     
+    
     // Update is called once per frame
     void Update()
     {
-        
+        if (exploreButton.GetComponent<ExploreButton>().changedMode){
+            transform.GetComponent<Dropdown>().value = 0;
+            mod.text = "None";
+            exploreButton.GetComponent<ExploreButton>().changedMode = false;
+        }
     }
+    
 }
