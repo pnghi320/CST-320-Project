@@ -6,13 +6,30 @@ public class PhysicsFreeze : MonoBehaviour
 {
     class FreezeData
     {
-        public Rigidbody rb;
-        public Vector3 initalVelocity;
+        Rigidbody rigidbody;
+        Vector3 initalVelocity;
+        Vector3 initalAngularVelocity;
 
-        public FreezeData(Rigidbody rb)
+        public FreezeData(Rigidbody rigidbody)
         {
-            this.rb = rb;
-            initalVelocity = rb.velocity;
+            this.rigidbody = rigidbody;
+            initalVelocity = rigidbody.velocity;
+            initalAngularVelocity = rigidbody.angularVelocity;
+        }
+
+        public Rigidbody GetRigidbody()
+        {
+            return rigidbody;
+        }
+
+        public Vector3 GetInitialVelocity()
+        {
+            return initalVelocity;
+        }
+
+        public Vector3 GetInitialAngularVelocity()
+        {
+            return initalAngularVelocity;
         }
     }
 
@@ -66,8 +83,10 @@ public class PhysicsFreeze : MonoBehaviour
 
         foreach (var freezeDataObject in freezeDataObjects)
         {
-            freezeDataObject.rb.isKinematic = false;
-            freezeDataObject.rb.velocity = freezeDataObject.initalVelocity;
+            Rigidbody freezeDataRigidbody = freezeDataObject.GetRigidbody();
+            freezeDataRigidbody.isKinematic = false;
+            freezeDataRigidbody.velocity = freezeDataObject.GetInitialVelocity();
+            freezeDataRigidbody.angularVelocity = freezeDataObject.GetInitialAngularVelocity();
         }
     }
 
